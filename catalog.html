@@ -35,53 +35,75 @@
     </div>
     <div class="content_wrapper container">
       <section class="filter">
-        <!-- <h2 class="filter__title">Фильтр товаров</h2> -->
+        <h2 class="visually-hidden">Фильтр товаров</h2>
         <form class="filter_form" action="https://echo.htmlacademy.ru/" method="get">
           <fieldset class="price">
             <legend class="filter_subtitle">Стоимость:</legend>
-            <p>
-              <input class="price_range" type="range" min="0" max="150000" step="1" name="pricelider">
-            </p>
-            <p class="price_boundaries">
-              <label class="price_text">От<input class="price_input" type="number" name="price_min" value="0"></label>
-              <label class="price_text">До<input class="price_input" type="number" name="price_max"
-                  value="150000"></label>
-            </p>
+            <div class="range_filter">
+              <div class="range_controls">
+                <div class="scale">
+                  <div class="bar" style="width: 30%; margin-left: 20%;"></div>
+                </div>
+                <div class="toggle toggle_min" tabindex="0" style="left: 20%;"></div>
+                <div class="toggle toggle_max" tabindex="0" style="left: 50%;"></div>
+              </div>
+              <div class="price_controls">
+                <label class="min_price">
+                  от <input type="number" name="min_price" value="0">
+                </label>
+                <label class="max_price">
+                  до <input type="number" name="max_pprice" value="15000">
+                </label>
+              </div>
+            </div>
           </fieldset>
           <fieldset class="grid">
-            <legend class="filter_subtitle">Сетка</legend>
+            <legend>Сетка</legend>
             <ul class="grid_list clear_list">
               <li>
-                <label><input class="grid_radio" type="radio" name="grid" value="adaptive" checked>Адаптивная</label>
+                <input class="visually-hidden filter_input_radio" type="radio" name="grid" value="adaptive"
+                  id="filter_adaptive" checked>
+                <label for="filter_adaptive">Адаптивная</label>
               </li>
               <li>
-                <label><input class="grid_radio" type="radio" name="grid" value="fix">Фиксированная</label>
+                <input class="visually-hidden filter_input_radio" type="radio" name="grid" value="fixed"
+                  id="filter_fixed">
+                <label for="filter_fixed">Фиксированная</label>
               </li>
               <li>
-                <label><input class="grid_radio" type="radio" name="grid" value="rubber">Ризиновая</label>
+                <input class="visually-hidden filter_input_radio" type="radio" name="grid" value="stretch"
+                  id="filter_stretch">
+                <label for="filter_stretch">Ризиновая</label>
               </li>
             </ul>
           </fieldset>
           <fieldset class="features">
-            <legend class="filter_subtitle">Особенности</legend>
+            <legend>Особенности</legend>
             <ul class="features_list clear_list">
               <li>
-                <label><input class="features_checkbox" type="checkbox" name="features" value="slide"
-                    checked>Слайдер</label>
+                <input class="visually-hidden filter_input_checkbox" type="checkbox" name="features" value="slider"
+                  id="filter_slider" checked>
+                <label for="filter_slider">Слайдер</label>
               </li>
               <li>
-                <label><input class="features_checkbox" type="checkbox" name="features" value="block">Блок
-                  перимуществ</label>
+                <input class="visually-hidden filter_input_checkbox" type="checkbox" name="features" value="block"
+                  id="filter_block">
+                <label for="filter_block">Блок преимуществ</label>
               </li>
               <li>
-                <label><input class="features_checkbox" type="checkbox" name="features" value="news"
-                    checked>Новости</label>
+                <input class="visually-hidden filter_input_checkbox" type="checkbox" name="features" value="news"
+                  id="filter_news" checked>
+                <label for="filter_news">Новости</label>
               </li>
               <li>
-                <label><input class="features_checkbox" type="checkbox" name="features" value="gallery">Галерея</label>
+                <input class="visually-hidden filter_input_checkbox" type="checkbox" name="features" value="gallery"
+                  id="filter_gallery">
+                <label for="filter_gallery">Галерея</label>
               </li>
               <li>
-                <label><input class="features_checkbox" type="checkbox" name="features" value="bean">Корзина</label>
+                <input class="visually-hidden filter_input_checkbox" type="checkbox" name="features" value="bean"
+                  id="filter_bean">
+                <label for="filter_bean">Корзина</label>
               </li>
             </ul>
 
@@ -91,9 +113,10 @@
       </section>
       <section class="sorting">
         <p class="sorting_subtitle">Сортировать:</p>
-        <ul class="sorting_list clear_list">
+        <div class="sorting_controls">
+        <ul class="sorting_list_type clear_list">
           <li>
-            <a class="sorting_item sorting_active" href="#">По цене</a>
+            <a class="sorting_item sorting_item_active" href="#">По цене</a>
           </li>
           <li>
             <a class="sorting_item" href="#">По типу</a>
@@ -101,38 +124,44 @@
           <li>
             <a class="sorting_item" href="#">По названию</a>
           </li>
+        </ul>
+        <ul class="sorting_list_arrows clear_list">
           <li>
-            <a class="sorting_item sorting_active" href="#"></a>
+            <a class="sorting_item sorting_item_active sorting_item_down sorting_item_active" href="#" aria-label="От меньшего к большему"></a>
           </li>
           <li>
-            <a class="sorting_item" href="#"></a>
+            <a class="sorting_item sorting_item_up" href="#" aria-label="От большего к меньшему"></a>
           </li>
         </ul>
+      </div>
       </section>
       <section class="products">
-        <h2 class="products_title">Список шаблонов</h2>
+        <h2 class="visually-hidden">Список шаблонов</h2>
         <ul class="products_list clear_list">
           <li class="product_item">
             <div class="product_desc">
               <h3><a class="product_title" href="products.html">Sedona</a></h3>
-              <p>Информационный сайт для туристов</p>
-              <a class="button button_red" href="#">9 900 ₽</a>
+              <p>Информационный сайт <br>
+                для туристов</p>
+              <a class="button button_red product_button" href="#">9 900 ₽</a>
             </div>
             <img class="product_image" src="img/sites/sedona_site.png" width="358" height="578" alt="Сайт Sedona">
           </li>
           <li class="product_item">
             <div class="product_desc">
               <h3><a class="product_title" href="products.html">Pink App</a></h3>
-              <p>Продуктовый лендинг приложения для iOS и Android</p>
-              <a class="button button_red" href="#">9 900 ₽</a>
+              <p>Продуктовый лендинг <br>
+                 приложения для iOS и Android</p>
+              <a class="button button_red product_button" href="#">9 900 ₽</a>
             </div>
             <img class="product_image" src="img/sites/pink_site.png" width="358" height="578" alt="Сайт Pink App">
           </li>
           <li class="product_item">
             <div class="product_desc">
               <h3><a class="product_title" href="products.html">Barbershop</a></h3>
-              <p>Сайт салона красоты. Для мужчин, да.</p>
-              <a class="button button_red" href="#">9 900 ₽</a>
+              <p>Сайт салона красоты. <br> 
+                Для мужчин, да.</p>
+              <a class="button button_red product_button" href="#">9 900 ₽</a>
             </div>
             <img class="product_image" src="img/sites/barbershop_site.png" width="358" height="578"
               alt="Сайт Barbershop">
@@ -140,24 +169,27 @@
           <li class="product_item">
             <div class="product_desc">
               <h3><a class="product_title" href="products.html">Mishka</a></h3>
-              <p>Интернет-магазин вязаных игрушек</p>
-              <a class="button button_red" href="#">9 900 ₽</a>
+              <p>Интернет-магазин <br>
+                 вязаных игрушек</p>
+              <a class="button button_red product_button" href="#">9 900 ₽</a>
             </div>
             <img class="product_image" src="img/sites/mishka_site.png" width="358" height="578" alt="Сайт Mishka">
           </li>
           <li class="product_item">
             <div class="product_desc">
               <h3><a class="product_title" href="products.html">A Plus</a></h3>
-              <p>Лендинг курсов повышения квалификации</p>
-              <a class="button button_red" href="#">9 900 ₽</a>
+              <p>Лендинг курсов повышения <br>
+                 квалификации</p>
+              <a class="button button_red product_button" href="#">9 900 ₽</a>
             </div>
             <img class="product_image" src="img/sites/aplus_site.png" width="358" height="578" alt="Сайт A Plus">
           </li>
           <li class="product_item">
             <div class="product_desc">
               <h3><a class="product_title" href="products.html">Кваст</a></h3>
-              <p>Промо-сайт производителя крафтового кваса</p>
-              <a class="button button_red" href="#">9 900 ₽</a>
+              <p>Промо-сайт производителя <br>
+                 крафтового кваса</p>
+              <a class="button button_red product_button" href="#">9 900 ₽</a>
             </div>
             <img class="product_image" src="img/sites/kvast_site.png" width="358" height="578" alt="Сайт Кваст">
           </li>
@@ -173,7 +205,7 @@
     <section class="contacts">
       <div class="container">
         <div class="contacts_information">
-          <!-- <h2>Контакты</h2> -->
+          <h2 class="visually-hidden">Контакты</h2>
           <p class="contacts_subtitle">Nёrds Design Studio</p>
           <p class="contacts_adress">наб. Реки Карповки, <br>
             5 лит П, Санкт-Петербург<br>
