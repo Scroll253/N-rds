@@ -129,13 +129,14 @@ img {
     display: grid;
     grid-template-columns: 160px 1fr min-content;
     column-gap: 20px;
-    align-items: center;
+    align-items: end;
 }
 
 .site_navigation {
     justify-self: center;
     display: flex;
     flex-wrap: wrap;
+    padding-bottom: 10px;
 }
 .site_navigation a {
 margin-right: 45px;
@@ -153,6 +154,7 @@ padding-bottom: 13px;
 }
 .navigation_basket {
     position: relative;
+    padding-bottom: 10px;
 }
 .navigation_basket::before {
     content: "";
